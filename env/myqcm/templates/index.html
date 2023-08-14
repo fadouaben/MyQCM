@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% comment %}
+    <p>hello</p>
+{% endcomment %}
+
+
+   
+
+    <form method="POST">
+        {% csrf_token %}
+        {{lf}}
+
+        <input type="submit" value="save">
+       
+    </form>
+{% endblock content %}

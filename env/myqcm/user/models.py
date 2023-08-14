@@ -8,7 +8,8 @@ class RoleChoices(models.TextChoices):
     TEACHER = 'teacher'
 
 
-class User(models.Model):
+class UserClass(models.Model):
+    username = models.CharField(max_length=50)
     firstName = models.CharField(max_length=50)
     SecondName = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
