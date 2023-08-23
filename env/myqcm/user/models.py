@@ -15,5 +15,6 @@ class UserClass(models.Model):
     email = models.CharField(max_length=50)
     tele = models.IntegerField()
     role = models.CharField(max_length=20,choices=RoleChoices.choices,default=RoleChoices.STUDENT)
+    password = models.CharField(max_length=12)
 
 
