@@ -14,9 +14,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
+from chapitre import views as chapitre_views
+
+from cours import views as cours_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+      path('chapitres/', chapitre_views.chapitre_list, name='chapitre_list'),
+    path('chapitres/create/', chapitre_views.chapitre_create, name='chapitre_create'),
+    path('chapitres/<int:pk>/', chapitre_views.chapitre_detail, name='chapitre_detail'),
+    path('chapitres/<int:pk>/update/', chapitre_views.chapitre_update, name='chapitre_update'),
+    path('chapitres/<int:pk>/delete/', chapitre_views.chapitre_delete, name='chapitre_delete'),
+    
+    path('cours/', cours_views.cours_list, name='cours_list'),
+    path('cours/<int:pk>/', cours_views.cours_detail, name='cours_detail'),
+    path('cours/create/', cours_views.cours_create, name='cours_create'),
+    path('cours/update/<int:pk>/', cours_views.cours_update, name='cours_update'),
+    path('cours/<int:pk>/delete/', cours_views.cours_delete, name='cours_delete'),
+    
+   
 ]

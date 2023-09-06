@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cours Detail</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/myqcm/chapitre/templates/chapitre/interfaces/bg.jpg') center center fixed;
+            background-size: cover;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        strong {
+            font-weight: bold;
+        }
+        p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cours Detail</h1>
+        <p><strong>Title:</strong> {{ cours.titre }}</p>
+        <p><strong>Contenu:</strong> {{ cours.contenu }}</p>
+      
+        <p><strong>Chapitre:</strong> {{ cours.chapitre }}</p>
+        <!-- Add other details as needed -->
+        
+        <a href="{% url 'cours_update' cours.id %}">Update</a>
+        <a href="{% url 'cours_list' %}">Back to List</a>
+    </div>
+</body>
+</html>
