@@ -10,3 +10,6 @@ class Cours(models.Model):
 class SousSkill(models.Model):
     valeur = models.TextField()
     skill = models.ForeignKey(Skill,on_delete=models.CASCADE)
+
+    def __str__(self) :
+        return self.valeur

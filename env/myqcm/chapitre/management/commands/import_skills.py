@@ -5,6 +5,7 @@ import tabula
 import pandas as pd
 from django.core.management.base import BaseCommand
 from chapitre.models import Skill
+from cours.models import SousSkill
 from django.apps import AppConfig
 import xlrd
 from django.conf import settings
@@ -44,6 +45,7 @@ class Command(BaseCommand):
 
         df = pd.read_excel('temp_merged.xlsx')
         skills_colonne = df.iloc[:, 3]
+        
         for index,skill_data in skills_colonne.items():
             if pd.notna(skill_data):
                 existing_skill = Skill.objects.filter(valeur=skill_data).first()
@@ -56,5 +58,15 @@ class Command(BaseCommand):
                         matiere='رياضيات'
                     )
                     skill.save()
+                else:
+                    skill = existing_skill    
+                sous_skills = df.iloc[index,0]
+                if pd.notna(sous_skills) and sous_skills!= "التدأرب على حل مسائل ةيعيبطا ةحيحصا دادعأا - ةيعيبطا ةحيحصا دادعأا عومجم يف تايلمعا - ةيرشعا دادعأا-" and sous_skills!="التدأرب على حل مسائل":
+                    
+                    sous_skill = SousSkill.objects.create(
+                        valeur=sous_skills,
+                        skill=skill
+                    )    
+                    sous_skill.save()
 
         self.stdout.write(self.style.SUCCESS('Successfully imported skills'))
