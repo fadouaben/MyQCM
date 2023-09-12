@@ -38,15 +38,25 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'quiz.apps.QuizConfig',
     'cours.apps.CoursConfig',
     'chapitre.apps.ChapitreConfig',
     'user.apps.UserConfig',
+    'niveau.apps.NiveauConfig',
+    'matiere.apps.MatiereConfig',
+    'crispy_forms',
+
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap'  # Utilisez le pack de templates que vous préférez (par exemple 'bootstrap4' ou 'uni_form')
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -74,6 +84,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myqcm.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",  # Ajoutez l'URL de votre frontend en développement
+]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+CORS_ALLOW_CREDENTIALS = True
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases

@@ -1,9 +1,25 @@
 from django import forms
 from .models import UserClass
-
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
     
-class Inscription(forms.ModelForm):
+class Inscription(UserCreationForm):
     class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'password1',
+            'password2',
+            'email',
+            
+        ]
+
+class InscriptionUser(forms.ModelForm) :
+    class Meta():
         model = UserClass
-        fields = '__all__'
-        
+        fields =[
+            'tele',
+            'role',
+        ]      
