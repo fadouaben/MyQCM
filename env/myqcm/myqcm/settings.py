@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'niveau.apps.NiveauConfig',
     'matiere.apps.MatiereConfig',
+    'skills.apps.SkillsConfig',
     'crispy_forms',
 
 ]

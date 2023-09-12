@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 import tabula
 import pandas as pd
 from django.core.management.base import BaseCommand
-from chapitre.models import Skill
-from cours.models import SousSkill
+from skills.models import Skill
+from skills.models import SousSkill
 from django.apps import AppConfig
 import xlrd
 from django.conf import settings

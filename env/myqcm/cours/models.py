@@ -1,5 +1,5 @@
 from django.db import models
-from chapitre.models import Chapitre,Skill
+from chapitre.models import Chapitre
 # Create your models here.
 class Cours(models.Model):
     titre = models.CharField(max_length=100)
@@ -7,9 +7,3 @@ class Cours(models.Model):
     chapitre = models.ForeignKey(Chapitre,on_delete=models.CASCADE)
 
 
-class SousSkill(models.Model):
-    valeur = models.TextField()
-    skill = models.ForeignKey(Skill,on_delete=models.CASCADE)
-
-    def __str__(self) :
-        return self.valeur

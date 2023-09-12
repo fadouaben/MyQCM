@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Chapitre,Skill
+from .models import Chapitre
 
 # Register your models here.
 admin.site.register(Chapitre)
-admin.site.register(Skill)
