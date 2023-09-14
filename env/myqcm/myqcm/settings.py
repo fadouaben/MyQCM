@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'cours.apps.CoursConfig',
     'chapitre.apps.ChapitreConfig',
     'user.apps.UserConfig',
+    'matiere.apps.MatiereConfig',
+    'niveau.apps.NiveauConfig',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -52,8 +56,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+    'OPTIONS',
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    # Remplacez par l'URL de votre application Angular
+]
 ROOT_URLCONF = 'myqcm.urls'
 
 TEMPLATES = [

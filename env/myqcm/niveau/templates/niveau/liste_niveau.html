@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des niveaux</title>
+</head>
+<body>
+    <h1>Liste des niveaux</h1>
+    <ul>
+        {% for niveau in niveaux %}
+            <li>{{ niveau.nom }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

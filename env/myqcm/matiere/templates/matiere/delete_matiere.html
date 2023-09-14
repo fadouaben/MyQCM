@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supprimer une matière</title>
+</head>
+<body>
+    <h1>Confirmez-vous la suppression de la matière "{{ matiere.nom }}" ?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, supprimer</button>
+        <a href="{% url 'listeMatieres' %}">Annuler</a>
+    </form>
+</body>
+</html>
+
+

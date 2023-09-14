@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supprimer un niveau</title>
+</head>
+<body>
+    <h1>Confirmez-vous la suppression de la niveau "{{ niveau.nom }}" ?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, supprimer</button>
+        <a href="{% url 'listeNiveaux' %}">Annuler</a>
+    </form>
+</body>
+</html>
+
+

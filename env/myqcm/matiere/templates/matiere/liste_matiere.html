@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des matieres</title>
+</head>
+<body>
+    <h1>Liste des matieres</h1>
+    <ul>
+        {% for matiere in matieres %}
+            <li>{{ matiere.nom }}   {{ matiere.niveau.nom }}</li>
+            
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

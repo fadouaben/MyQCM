@@ -16,7 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from matiere import views as matiere_views
+from niveau import views as niveau_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    path('niveaux/', niveau_views.afficher_niveau, name="listeNiveaux"),
+    path('matieres/', matiere_views.afficher_matiere, name="listeMatieres"),
+    path('CreateMatiere/', matiere_views.MatierCreateView.as_view(),name="MatiereCreate"),
+    path('matieres/edit/<int:matiere_id>/', matiere_views.edit_matiere, name='edit_matiere'),
+    path('matieres/delete/<int:matiere_id>/', matiere_views.delete_matiere, name='delete_matiere'),
+    path('CreateNiveau/', niveau_views.NiveauCreateView.as_view(),name="NiveauCreate"),
+    path('niveaux/edit/<int:niveau_id>/', niveau_views.edit_niveau, name='edit_niveau'),
+    path('niveaux/delete/<int:niveau_id>/', niveau_views.delete_niveau, name='delete_niveau'),
+]    
